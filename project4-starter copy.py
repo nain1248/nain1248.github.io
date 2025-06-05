@@ -1,0 +1,231 @@
+'''
+Nai Nakamura
+Project Variation #2 (please change the number)
+
+This was my code that I turned in for project 4 with no revisions the other file that I attached is 
+my project 5 with revisions. This is just to see the before
+
+'''
+
+
+# loads the Turtle graphics module, which is a built-in library in Python
+import turtle
+import math
+
+def setup_turtle():
+    """Initialize turtle with standard settings"""
+    t = turtle.Turtle()
+    t.speed(0)  # Fastest speed
+    screen = turtle.Screen()
+    screen.title("Turtle Graphics Assignment")
+    return t, screen
+
+
+def draw_rectangle(t, width, height, fill_color=None):
+    """Draw a rectangle with optional fill"""
+    if fill_color:
+        t.fillcolor(fill_color)
+        t.begin_fill()
+    for _ in range(2):
+        t.forward(width)
+        t.right(90)
+        t.forward(height)
+        t.right(90)
+    if fill_color:
+        t.end_fill()
+
+def draw_square(t, size, fill_color=None):
+    """Draw a square with optional fill"""
+    if fill_color:
+        t.fillcolor(fill_color)
+        t.begin_fill()
+    for _ in range(4):
+        t.forward(size)
+        t.right(90)
+    if fill_color:
+        t.end_fill()
+
+
+def draw_triangle(t, size, fill_color=None):
+    """Draw an equilateral triangle with optional fill"""
+    if fill_color:
+        t.fillcolor(fill_color)
+        t.begin_fill()
+    for _ in range(3):
+        t.forward(size)
+        t.left(120)
+    if fill_color:
+        t.end_fill()
+
+
+def draw_circle(t, radius, fill_color=None):
+    """Draw a circle with optional fill"""
+    if fill_color:
+        t.fillcolor(fill_color)
+        t.begin_fill()
+    t.circle(radius)
+    if fill_color:
+        t.end_fill()
+
+
+def draw_polygon(t, sides, size, fill_color=None):
+    """Draw a regular polygon with given number of sides"""
+    if fill_color:
+        t.fillcolor(fill_color)
+        t.begin_fill()
+    angle = 360 / sides
+    for _ in range(sides):
+        t.forward(size)
+        t.right(angle)
+    if fill_color:
+        t.end_fill()
+
+
+def draw_curve(t, length, curve_factor, segments=10, fill_color=None):
+    """
+    Draw a curved line using small line segments
+    
+    Parameters:
+    - t: turtle object
+    - length: total length of the curve
+    - curve_factor: positive for upward curve, negative for downward curve
+    - segments: number of segments (higher = smoother curve)
+    - fill_color: optional color to fill if creating a closed shape
+    """
+    if fill_color:
+        t.fillcolor(fill_color)
+        t.begin_fill()
+        
+    segment_length = length / segments
+    # Save the original heading
+    original_heading = t.heading()
+    
+    for i in range(segments):
+        # Calculate the angle for this segment
+        angle = curve_factor * math.sin(math.pi * i / segments)
+        t.right(angle)
+        t.forward(segment_length)
+        t.left(angle)  # Reset the angle for the next segment
+    
+    # Reset to original heading
+    t.setheading(original_heading)
+    
+    if fill_color:
+        t.end_fill()
+        
+def jump_to(t, x, y):
+    """Move turtle without drawing"""
+    t.penup()
+    t.goto(x, y)
+    t.pendown()    
+
+def draw_scene(t):
+    """Draw a colorful scene with various shapes"""
+    # Set background color
+    screen = t.getscreen()
+    screen.bgcolor("skyblue")
+
+    """
+    This is the start of the waves 
+    """
+
+    jump_to(t, -150,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, -450,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, -400,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, -350,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t,-300, -100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, -250,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, -200,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, -150,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, -100,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, -50,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, 0,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, 50,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, 100,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, 150,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, 200,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, 250,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, 300,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, 350,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, 400,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, -500,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, -550,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+    jump_to(t, -600,-100)
+    draw_curve(t, 500, 50, segments=30, fill_color="blue4")
+
+   
+
+    """This is to fill in the missing gaps from the waves"""
+
+    jump_to(t,-500,-150)
+    draw_rectangle(t, 1000, 1000, fill_color="blue4")
+
+    """This is the birds in the top right corner"""
+
+    jump_to(t, 300, 300)
+    t.setheading(314)
+    t.forward(30)
+    t.setheading(45)
+    t.forward(30)
+
+    jump_to(t, 220, 300)
+    t.setheading(314)
+    t.forward(30)
+    t.setheading(45)
+    t.forward(30)
+
+    jump_to(t, 330, 250)
+    t.setheading(314)
+    t.forward(30)
+    t.setheading(45)
+    t.forward(30)
+
+   
+
+    """This is the hull of the boat"""
+
+    t.setheading(0)
+    jump_to(t, -100, 0)
+    draw_rectangle(t, 100, 100, "peru")
+
+    """This is the triangular sail and post"""
+
+    jump_to(t, -90,150)
+    draw_rectangle(t, 10, 150, fill_color="peru")
+    jump_to(t,-90, 100)
+    t.setheading(30)
+    draw_triangle(t, 90, fill_color="blue")
+
+
+    
+def main():
+    t, screen = setup_turtle()
+    draw_scene(t)
+    screen.mainloop()
+
+if __name__ == "__main__":
+    main()
+
+
+
